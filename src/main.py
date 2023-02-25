@@ -7,7 +7,7 @@ if __name__ == '__main__':
     n = int(input("Enter number of points: "))
 
     # input d dimension
-    d = int(input("Enter dimension: "))
+    dimension = int(input("Enter dimension: "))
 
     while True:
         # inisialize array of points
@@ -15,7 +15,7 @@ if __name__ == '__main__':
         
         # generate random points
         for i in range(n):
-            arrOfPoint = arrOfPoint + [[randomUniform(-10000000, 10000000) for j in range(d)]]
+            arrOfPoint = arrOfPoint + [[randomUniform(-10000000, 10000000) for j in range(dimension)]]
         
         # print array of points
         # print("Array of points: ")
@@ -25,12 +25,12 @@ if __name__ == '__main__':
 
         # get closest pair by brute force
         timeBruteForce = currentTime()
-        point1BF, point2BF, minDistanceBF = getClosestPairByBruteForce(arrOfPoint, n, d)
+        point1BF, point2BF, minDistanceBF = getClosestPairByBruteForce(arrOfPoint, n, dimension)
         timeBruteForce = currentTime() - timeBruteForce
 
         # get closest pair by divide and conquer
         timeDivideNConquer = currentTime()
-        point1DC, point2DC, minDistanceDC= getClosestPairByDivideNConquer(arrOfPoint, n, d)
+        point1DC, point2DC, minDistanceDC= getClosestPairByDivideNConquer(arrOfPoint, n, dimension)
         timeDivideNConquer = currentTime() - timeDivideNConquer
 
         # print result
@@ -72,4 +72,10 @@ if __name__ == '__main__':
 
     with open(fileName, "w") as f:
         for i in range(n):
-            f.write(str(arrOfPoint[i]) +"\n")
+            for j in range(dimension):
+                if j == dimension - 1:
+                    f.write(str(arrOfPoint[i][j]))
+                else:
+                    f.write(str(arrOfPoint[i][j]) + ", ")
+            f.write("\n")
+    f.close()
