@@ -40,6 +40,7 @@ def getClosestPairByDivideNConquer(arrOfPoint:list, n:int, dimension:int = 3) ->
         # find closest pair that cross the middle line
         for i in range(nMiddleLine):
             nPointToCheck = (2*(3**dimension)) if (nMiddleLine > (2*(3**dimension))) else nMiddleLine
+            # nPointToCheck = nMiddleLine
 
             for j in range(i + 1, nPointToCheck):
                 if abs(arrOfPointInMiddleLine[i][1] - arrOfPointInMiddleLine[j][1]) < minDistance :

@@ -40,13 +40,13 @@ if __name__ == '__main__':
         # print("Distance: ", minDistanceBF)
         # print("Time: ", timeBruteForce)
 
-        # print()
-
         # print("Closest pair is Using Divide and Conquer: ")
         # print("Point A: ", point1DC)
         # print("Point B: ", point2DC)
         # print("Distance: ", minDistanceDC)
         # print("Time: ", timeDivideNConquer)
+
+        # print()
 
         if (minDistanceBF != minDistanceDC):
             break
@@ -57,13 +57,13 @@ if __name__ == '__main__':
     print("Distance: ", minDistanceBF)
     print("Time: ", timeBruteForce)
 
-    print()
-
     print("Closest pair is Using Divide and Conquer: ")
     print("Point A: ", point1DC)
     print("Point B: ", point2DC)
     print("Distance: ", minDistanceDC)
     print("Time: ", timeDivideNConquer)
+
+    print()
 
     # write to file error test case
     import os
