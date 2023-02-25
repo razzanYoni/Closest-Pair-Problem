@@ -3,7 +3,7 @@ from main import *
 """DEBUG MODE"""	
 if __name__ == '__main__':
 
-    fileName = './txt/tc3.txt'
+    fileName = './txt/tc2.txt'
 
     arrOfPoints = []
     dimension:int
