@@ -16,7 +16,7 @@ if __name__ == '__main__':
         
         # generate random points
         for i in range(n):
-            temp = [randomUniform(-10, 10) for j in range(2)] + [randomUniform(-10000, 10000) for j in range(dimension - 2)] + [randomUniform(-10000000, 10000000) for j in range(dimension - 3)]
+            temp = [randomUniform(-10, 10) for j in range(2)] + [randomUniform(-10000000, 10000000) for j in range(dimension - 2)]
             arrOfPoint = arrOfPoint + [temp]
         
         # print array of points
@@ -84,6 +84,6 @@ if __name__ == '__main__':
                 if j == dimension - 1:
                     f.write(str(arrOfPoint[i][j]))
                 else:
-                    f.write(str(arrOfPoint[i][j]) + ", ")
+                    f.write(str(arrOfPoint[i][j]) + " ")
             f.write("\n")
     f.close()
