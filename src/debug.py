@@ -11,7 +11,7 @@ if __name__ == '__main__':
 
     with open(fileName, 'r') as f:
         for line in f:
-            temp = line.split(', ')
+            temp = line.split(' ')
             point = []
             dimension = len(temp)
             for num in temp :
