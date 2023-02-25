@@ -10,13 +10,14 @@ if __name__ == '__main__':
     # input d dimension
     dimension = int(input("Enter dimension: "))
 
-    while True:
+    while True and (n > 0) and (dimension > 0):
         # inisialize array of points
         arrOfPoint = []
         
         # generate random points
         for i in range(n):
-            arrOfPoint = arrOfPoint + [[randomUniform(-10000000, 10000000) for j in range(dimension)]]
+            temp = [randomUniform(-10, 10) for j in range(2)] + [randomUniform(-10000, 10000) for j in range(dimension - 2)] + [randomUniform(-10000000, 10000000) for j in range(dimension - 3)]
+            arrOfPoint = arrOfPoint + [temp]
         
         # print array of points
         # print("Array of points: ")
@@ -35,19 +36,19 @@ if __name__ == '__main__':
         timeDivideNConquer = currentTime() - timeDivideNConquer
 
         # print result
-        print("Closest pair is Using Brute Force: ")
-        print("Point A: ", point1BF)
-        print("Point B: ", point2BF)
-        print("Distance: ", minDistanceBF)
-        print("Time: ", timeBruteForce)
+        # print("Closest pair is Using Brute Force: ")
+        # print("Point A: ", point1BF)
+        # print("Point B: ", point2BF)
+        # print("Distance: ", minDistanceBF)
+        # print("Time: ", timeBruteForce)
 
-        print("Closest pair is Using Divide and Conquer: ")
-        print("Point A: ", point1DC)
-        print("Point B: ", point2DC)
-        print("Distance: ", minDistanceDC)
-        print("Time: ", timeDivideNConquer)
+        # print("Closest pair is Using Divide and Conquer: ")
+        # print("Point A: ", point1DC)
+        # print("Point B: ", point2DC)
+        # print("Distance: ", minDistanceDC)
+        # print("Time: ", timeDivideNConquer)
 
-        print()
+        # print()
 
         if (minDistanceBF != minDistanceDC):
             break
@@ -74,15 +75,15 @@ if __name__ == '__main__':
 
     # write to file error test case
     import os
-    nFile = len(os.listdir("./txt"))
-    fileName = "./txt/tc" + str(nFile) + ".txt"
+    nFile = len(os.listdir("./test"))
+    fileName = "./test/tc" + str(nFile) + ".txt"
 
-    # with open(fileName, "w") as f:
-    #     for i in range(n):
-    #         for j in range(dimension):
-    #             if j == dimension - 1:
-    #                 f.write(str(arrOfPoint[i][j]))
-    #             else:
-    #                 f.write(str(arrOfPoint[i][j]) + ", ")
-    #         f.write("\n")
-    # f.close()
+    with open(fileName, "w") as f:
+        for i in range(n):
+            for j in range(dimension):
+                if j == dimension - 1:
+                    f.write(str(arrOfPoint[i][j]))
+                else:
+                    f.write(str(arrOfPoint[i][j]) + ", ")
+            f.write("\n")
+    f.close()

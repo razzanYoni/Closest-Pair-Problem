@@ -3,7 +3,7 @@ from main import *
 """DEBUG MODE"""	
 if __name__ == '__main__':
 
-    fileName = './txt/tc2.txt'
+    fileName = './test/tc3.txt'
 
     arrOfPoints = []
     dimension:int
@@ -43,3 +43,7 @@ if __name__ == '__main__':
     print("Point B: ", point2DC)
     print("Distance: ", minDistanceDC)
     print("Time: ", timeDivideNConquer)
+
+    if ((n > 0) and (dimension == 3)):
+        three_dimensional_plotting(arrOfPoints, point1BF, point2BF)
+        three_dimensional_plotting(arrOfPoints, point1DC, point2DC)
