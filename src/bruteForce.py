@@ -1,4 +1,4 @@
-from statistic import *
+from statistic import getDistanceBetweenPoints
 
 def getClosestPairByBruteForce(arrOfPoint:list, n:int, dimension:int = 3) -> tuple :
 

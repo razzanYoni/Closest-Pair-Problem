@@ -1,6 +1,7 @@
-from bruteForce import *
-from divideNConquer import *
-from statistic import *
+from bruteForce import getClosestPairByBruteForce
+from divideNConquer import getClosestPairByDivideNConquer
+from statistic import currentTime, randomUniform
+from visualization import three_dimensional_plotting
 
 if __name__ == '__main__':
     # input n points
@@ -34,23 +35,24 @@ if __name__ == '__main__':
         timeDivideNConquer = currentTime() - timeDivideNConquer
 
         # print result
-        # print("Closest pair is Using Brute Force: ")
-        # print("Point A: ", point1BF)
-        # print("Point B: ", point2BF)
-        # print("Distance: ", minDistanceBF)
-        # print("Time: ", timeBruteForce)
+        print("Closest pair is Using Brute Force: ")
+        print("Point A: ", point1BF)
+        print("Point B: ", point2BF)
+        print("Distance: ", minDistanceBF)
+        print("Time: ", timeBruteForce)
 
-        # print("Closest pair is Using Divide and Conquer: ")
-        # print("Point A: ", point1DC)
-        # print("Point B: ", point2DC)
-        # print("Distance: ", minDistanceDC)
-        # print("Time: ", timeDivideNConquer)
+        print("Closest pair is Using Divide and Conquer: ")
+        print("Point A: ", point1DC)
+        print("Point B: ", point2DC)
+        print("Distance: ", minDistanceDC)
+        print("Time: ", timeDivideNConquer)
 
-        # print()
+        print()
 
         if (minDistanceBF != minDistanceDC):
             break
     
+    # print difference between 2 methods
     print("Closest pair is Using Brute Force: ")
     print("Point A: ", point1BF)
     print("Point B: ", point2BF)
@@ -65,17 +67,22 @@ if __name__ == '__main__':
 
     print()
 
+    # plot 3D
+    if ((n > 0) and (dimension == 3)):
+        three_dimensional_plotting(arrOfPoint, point1BF, point2BF)
+        three_dimensional_plotting(arrOfPoint, point1DC, point2DC)
+
     # write to file error test case
     import os
     nFile = len(os.listdir("./txt"))
     fileName = "./txt/tc" + str(nFile) + ".txt"
 
-    with open(fileName, "w") as f:
-        for i in range(n):
-            for j in range(dimension):
-                if j == dimension - 1:
-                    f.write(str(arrOfPoint[i][j]))
-                else:
-                    f.write(str(arrOfPoint[i][j]) + ", ")
-            f.write("\n")
-    f.close()
+    # with open(fileName, "w") as f:
+    #     for i in range(n):
+    #         for j in range(dimension):
+    #             if j == dimension - 1:
+    #                 f.write(str(arrOfPoint[i][j]))
+    #             else:
+    #                 f.write(str(arrOfPoint[i][j]) + ", ")
+    #         f.write("\n")
+    # f.close()

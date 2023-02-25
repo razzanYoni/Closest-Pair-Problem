@@ -1,5 +1,5 @@
-from statistic import *
-from bruteForce import *
+from bruteForce import getClosestPairByBruteForce
+from statistic import getDistanceBetweenPoints
 
 # TODO: implement sorted array
 # TODO: implement getClosestPairByDivideNConquer in the right way
