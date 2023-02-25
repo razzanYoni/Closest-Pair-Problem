@@ -19,8 +19,11 @@ def getClosestPairByDivideNConquer(arrOfPoint:list, n:int, dimension:int = 3) ->
         arrOfPoint2 = arrOfPoint[n // 2:]
 
         # find closest pair in each sub array
-        pointA, pointB, minDistance = getClosestPairByDivideNConquer(arrOfPoint1, n // 2, dimension)
-        pointA, pointB, minDistance = getClosestPairByDivideNConquer(arrOfPoint2, n - (n // 2), dimension)
+        pointA1, pointB1, minDistance1 = getClosestPairByDivideNConquer(arrOfPoint1, n // 2, dimension)
+        pointA2, pointB2, minDistance2 = getClosestPairByDivideNConquer(arrOfPoint2, n - (n // 2), dimension)
+
+        # find min distance
+        pointA, pointB, minDistance = (pointA1, pointB1, minDistance1) if (minDistance1 < minDistance2) else (pointA2, pointB2, minDistance2)
 
         # find closest pair that cross the middle line
         # find middle line
@@ -29,6 +32,8 @@ def getClosestPairByDivideNConquer(arrOfPoint:list, n:int, dimension:int = 3) ->
         nMiddleLine = 0
         # find points that are in the middle line respect to x
         arrOfPointInMiddleLine = []
+
+        # TODO: optimize this loop
         for i in range(n):
             if abs(arrOfPoint[i][0] - middleLine) < minDistance:
                 arrOfPointInMiddleLine = arrOfPointInMiddleLine + [arrOfPoint[i]]
@@ -38,9 +43,10 @@ def getClosestPairByDivideNConquer(arrOfPoint:list, n:int, dimension:int = 3) ->
         arrOfPointInMiddleLine = sortArray(arrOfPointInMiddleLine, 1)
 
         # find closest pair that cross the middle line
+        # TODO: optimize this loop
         for i in range(nMiddleLine):
-            # nPointToCheck = (2*(3**dimension)) if (nMiddleLine > (2*(3**dimension))) else nMiddleLine
-            nPointToCheck = nMiddleLine
+            nPointToCheck = (2*(3**dimension)) if (nMiddleLine > (2*(3**dimension))) else nMiddleLine
+            # nPointToCheck = nMiddleLine
 
             for j in range(i + 1, nPointToCheck):
                 if abs(arrOfPointInMiddleLine[i][1] - arrOfPointInMiddleLine[j][1]) < minDistance :

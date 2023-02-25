@@ -1,6 +1,6 @@
 import matplotlib.pyplot as plt
 
-def three_dimensional_plotting(arrOfPoint, pointA:list, pointB:list) :
+def three_dimensional_plotting(arrOfPoint:list, pointA:list, pointB:list) :
     fig = plt.figure()
 
     # 3D plot from array of points
