@@ -13,12 +13,12 @@ if __name__ == '__main__':
     dimension = int(input("Enter dimension: "))
 
     #while True and (n > 0) and (dimension > 0):
-        # inisialize array of points
+    # inisialize array of points
     arrOfPoint = []
     
     # generate random points
     for i in range(n):
-        temp = [tools.randomUniform(-10000000, 10000000) for j in range(3)] + [tools.randomUniform(-10, 10) for j in range(dimension - 3)]
+        temp = [tools.randomUniform(0, 10000000) for j in range(2)] + [tools.randomUniform(-10, 0) for j in range(dimension - 2)]
         arrOfPoint = arrOfPoint + [temp]
     
     # print array of points
@@ -32,6 +32,9 @@ if __name__ == '__main__':
     timeBruteForce = tools.currentTime()
     point1BF, point2BF, minDistanceBF = getClosestPairByBruteForce(arrOfPoint, n, dimension)
     timeBruteForce = tools.currentTime() - timeBruteForce
+
+    # get closest pair by divide and conquer
+    
 
     # print result
     # print("Closest pair is Using Brute Force: ")
@@ -48,8 +51,8 @@ if __name__ == '__main__':
 
     # print()
 
-    #if (minDistanceBF != minDistanceDC):
-    #    break
+    #    if (minDistanceBF != minDistanceDC):
+    #        break
     
     # print difference between 2 methods
     print("Closest pair is Using Brute Force: ")
@@ -59,7 +62,6 @@ if __name__ == '__main__':
     print("Time: ", timeBruteForce)
     print("Times euclidean distance called: ", tools.euclidN)
 
-    # get closest pair by divide and conquer
     tools.initializeCounter()
     timeDivideNConquer = tools.currentTime()
     point1DC, point2DC, minDistanceDC= getClosestPairByDivideNConquer(arrOfPoint, n, dimension)
