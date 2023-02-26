@@ -1,7 +1,7 @@
 import matplotlib.pyplot as plt
 
-def three_dimensional_plotting(arrOfPoint:list, pointA:list, pointB:list) :
-    fig = plt.figure()
+def three_dimensional_plotting(arrOfPoint:list, pointA:list, pointB:list, name:str = "") :
+    fig = plt.figure(num=name)
 
     # 3D plot from array of points
     ax = fig.add_subplot(111, projection='3d')

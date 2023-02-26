@@ -18,7 +18,7 @@ if __name__ == '__main__':
     
     # generate random points
     for i in range(n):
-        temp = [tools.randomUniform(0, 10000000) for j in range(2)] + [tools.randomUniform(-10, 0) for j in range(dimension - 2)]
+        temp = [tools.randomUniform(-100, 100) for j in range(dimension)]
         arrOfPoint = arrOfPoint + [temp]
     
     # print array of points
@@ -78,8 +78,8 @@ if __name__ == '__main__':
 
     # plot 3D
     if ((n > 0) and (dimension == 3)):
-        three_dimensional_plotting(arrOfPoint, point1BF, point2BF)
-        three_dimensional_plotting(arrOfPoint, point1DC, point2DC)
+        three_dimensional_plotting(arrOfPoint, point1BF, point2BF, "Brute Force")
+        three_dimensional_plotting(arrOfPoint, point1DC, point2DC, "Divide and Conquer")
 
     # write to file error test case
     import os

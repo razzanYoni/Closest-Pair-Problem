@@ -6,9 +6,6 @@ from tools import getDistanceBetweenPoints, validchecker, sortArrayq
 
 
 #buat perbadingan
-def sortArray(arrOfPoint:list, key:int) -> list:
-    return sorted(arrOfPoint, key = lambda x: x[key])
-
 
 def getClosestPairByDivideNConquer(arrOfPoint:list, n:int, dimension:int = 3) -> tuple :
     if n <= 3: # if there are 3 or less points, use brute force

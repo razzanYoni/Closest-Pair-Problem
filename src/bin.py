@@ -113,8 +113,8 @@ def partite2(arrOfPoint:list, key:int, i:int, j:int):
     arrOfPoint[p], arrOfPoint[j] = arrOfPoint[j], arrOfPoint[p]
     return p
 
-def three_dimensional_plotting(arrOfPoint:list, pointA:list, pointB:list) :
-    fig = plt.figure()
+def three_dimensional_plotting(arrOfPoint:list, pointA:list, pointB:list, name:str = "") :
+    fig = plt.figure(num=name)
 
     # 3D plot from array of points
     ax = fig.add_subplot(111, projection='3d')
@@ -208,7 +208,7 @@ def getClosestPairByDivideNConquer(arrOfPoint:list, n:int, dimension:int = 3) ->
         return (pointA, pointB, minDistance)
 
 def readFile(fileName:str) -> tuple :
-    fileName = '../test/' + fileName
+    fileName = './test/' + fileName
 
     arrOfPoints = []
     dimension:int
@@ -230,7 +230,7 @@ def readFile(fileName:str) -> tuple :
     n = len(arrOfPoints)
     return (arrOfPoints, n, dimension)
 
-if __name__ == '__main__':
+def main():
     setrecursionlimit(100000)
     exit = False
 
@@ -255,7 +255,7 @@ Input action:
             
             # generate random points
             for i in range(n):
-                temp = [randomUniform(-10000000, 10000000) for j in range(dimension)]
+                temp = [randomUniform(-100, 100) for j in range(dimension)]
                 arrOfPoint = arrOfPoint + [temp]
         elif inputUser == 2 :
             fileName = input("Input File Name: ")
@@ -296,6 +296,11 @@ Input action:
             print()
 
             # plot 3D
-            if ((n > 0) and (dimension == 3)):
-                three_dimensional_plotting(arrOfPoint, point1BF, point2BF)
-                three_dimensional_plotting(arrOfPoint, point1DC, point2DC)
+            if ((n >= 2) and (dimension == 3)):            
+                three_dimensional_plotting(arrOfPoint, point1BF, point2BF, "Brute Force")
+                three_dimensional_plotting(arrOfPoint, point1DC, point2DC, "Divide and Conquer")
+
+
+if __name__ == "__main__":
+    main()
+    

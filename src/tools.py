@@ -111,7 +111,30 @@ def partite2(arrOfPoint:list, key:int, i:int, j:int):
     arrOfPoint[p], arrOfPoint[j] = arrOfPoint[j], arrOfPoint[p]
     return p
 
+def readFile(fileName:str) -> tuple :
+    fileName = '../test/' + fileName
+
+    arrOfPoints = []
+    dimension:int
+    n:int
+
+    with open(fileName, 'r') as f:
+        for line in f:
+            temp = line.split(' ')
+            point = []
+            dimension = len(temp)
+
+            for num in temp:
+                if num != '\n':
+                    point = point + [float(num)]
+            arrOfPoints = arrOfPoints + [point]
     
+    f.close()
+    
+    n = len(arrOfPoints)
+    return (arrOfPoints, n, dimension)
+
+'''
 if __name__ == "__main__":
     arrOfPoint1 = []
     
@@ -137,3 +160,4 @@ if __name__ == "__main__":
     timex = currentTime()
     print(sorted(arrOfPoint1, key = lambda x: x[0]))
     print(currentTime()-timex)
+'''
