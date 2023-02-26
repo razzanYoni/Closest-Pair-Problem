@@ -1,10 +1,8 @@
-from statistic import getDistanceBetweenPoints
+from tools import getDistanceBetweenPoints
 
 def getClosestPairByBruteForce(arrOfPoint:list, n:int, dimension:int = 3) -> tuple :
 
-    minDistance = getDistanceBetweenPoints(arrOfPoint[0], arrOfPoint[1], dimension)
-    pointA = arrOfPoint[0]
-    pointB = arrOfPoint[1]
+    minDistance = 9999999999999999999999999999999999999999999999
 
     for i in range(n):
         for j in range(i + 1, n):

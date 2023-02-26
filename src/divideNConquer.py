@@ -1,18 +1,21 @@
 from bruteForce import getClosestPairByBruteForce
-from statistic import getDistanceBetweenPoints
+from tools import getDistanceBetweenPoints, validchecker, sortArrayq
 
 # TODO: implement sorted array
 # TODO: implement getClosestPairByDivideNConquer in the right way
 
+
+#buat perbadingan
 def sortArray(arrOfPoint:list, key:int) -> list:
     return sorted(arrOfPoint, key = lambda x: x[key])
+
 
 def getClosestPairByDivideNConquer(arrOfPoint:list, n:int, dimension:int = 3) -> tuple :
     if n <= 3: # if there are 3 or less points, use brute force
         return getClosestPairByBruteForce(arrOfPoint, n, dimension)
     else :
         # sort array of points by x coordinate
-        arrOfPoint = sortArray(arrOfPoint, 0)
+        sortArrayq(arrOfPoint, 0, 0, n-1)
 
         # divide array of points into 2 sub arrays
         arrOfPoint1 = arrOfPoint[:n // 2]
@@ -33,27 +36,46 @@ def getClosestPairByDivideNConquer(arrOfPoint:list, n:int, dimension:int = 3) ->
         # find points that are in the middle line respect to x
         arrOfPointInMiddleLine = []
 
+
         # TODO: optimize this loop
         for i in range(n):
             if abs(arrOfPoint[i][0] - middleLine) < minDistance:
                 arrOfPointInMiddleLine = arrOfPointInMiddleLine + [arrOfPoint[i]]
                 nMiddleLine += 1
         
+
+        #''' Alternative 
         # sort array of points by y coordinate
-        arrOfPointInMiddleLine = sortArray(arrOfPointInMiddleLine, 1)
+        sortArrayq(arrOfPointInMiddleLine, 1, 0, nMiddleLine-1)
 
         # find closest pair that cross the middle line
         # TODO: optimize this loop
         for i in range(nMiddleLine):
-            nPointToCheck = (2*(3**dimension)) if (nMiddleLine > (2*(3**dimension))) else nMiddleLine
-            # nPointToCheck = nMiddleLine
+            j = i+1
 
-            for j in range(i + 1, nPointToCheck):
-                if abs(arrOfPointInMiddleLine[i][1] - arrOfPointInMiddleLine[j][1]) < minDistance :
+            while j < nMiddleLine:
+                if (arrOfPointInMiddleLine[j][1] - arrOfPointInMiddleLine[i][1]) > minDistance:
+                    break
+                if validchecker(arrOfPointInMiddleLine[i], arrOfPointInMiddleLine[j], minDistance, 2):
                     distance = getDistanceBetweenPoints(arrOfPointInMiddleLine[i], arrOfPointInMiddleLine[j], dimension)
                     if distance < minDistance:
                         minDistance = distance
                         pointA = arrOfPointInMiddleLine[i]
                         pointB = arrOfPointInMiddleLine[j]
+                j += 1
+
+        '''
+            nPointToCheck = (6) if (nMiddleLine - i - 1 > (6)) else nMiddleLine - i - 1
+            # nPointToCheck = nMiddleLine
+
+            for j in range(1, nPointToCheck+1):
+                if abs(arrOfPointInMiddleLine[i][1] - arrOfPointInMiddleLine[i+j][1]) < minDistance :
+                    distance = getDistanceBetweenPoints(arrOfPointInMiddleLine[i], arrOfPointInMiddleLine[i+j], dimension)
+                    if distance < minDistance:
+                        minDistance = distance
+                        pointA = arrOfPointInMiddleLine[i]
+                        pointB = arrOfPointInMiddleLine[i+j]
+        #'''
+
 
         return (pointA, pointB, minDistance)
