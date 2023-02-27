@@ -29,8 +29,6 @@ def getClosestPairByDivideNConquer(arrOfPoint:list, n:int, dimension:int = 3) ->
         arrOfPointInMiddleLine1 = []
         arrOfPointInMiddleLine2 = []
 
-
-        # TODO: optimize this loop
         for i in range(n):
             val = arrOfPoint[i][0] - middleLine
             if val < minDistance and val >= 0:
@@ -47,7 +45,7 @@ def getClosestPairByDivideNConquer(arrOfPoint:list, n:int, dimension:int = 3) ->
         #sortArrayq(arrOfPointInMiddleLine2, 1, 0, nMiddleLine2-1)
 
         # find closest pair that cross the middle line
-        # TODO: optimize this loop
+
         
         #k = 0
         for i in range(nMiddleLine1):
@@ -59,7 +57,7 @@ def getClosestPairByDivideNConquer(arrOfPoint:list, n:int, dimension:int = 3) ->
 
                 #if arrOfPointInMiddleLine2[j][1] - arrOfPointInMiddleLine1[i][1] < (-1)*minDistance:
                 #    k = j + 1
-                    
+                   
                 if validchecker(arrOfPointInMiddleLine1[i], arrOfPointInMiddleLine2[j], minDistance, 1):
                     distance = getDistanceBetweenPoints(arrOfPointInMiddleLine1[i], arrOfPointInMiddleLine2[j], dimension)
                     if distance < minDistance:
