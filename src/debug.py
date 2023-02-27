@@ -4,7 +4,7 @@ from main import *
 if __name__ == '__main__':
     sys.setrecursionlimit(100000)
 
-    fileName = './test/tc6.txt'
+    fileName = './test/tc14.txt'
 
     arrOfPoints = []
     dimension:int
@@ -41,6 +41,7 @@ if __name__ == '__main__':
 
     tools.initializeCounter()
     timeDivideNConquer = tools.currentTime()
+    tools.sortArrayq(arrOfPoints, 0, 0, n-1)
     point1DC, point2DC, minDistanceDC= getClosestPairByDivideNConquer(arrOfPoints, n, dimension)
     timeDivideNConquer = tools.currentTime() - timeDivideNConquer
 

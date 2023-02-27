@@ -64,6 +64,7 @@ if __name__ == '__main__':
 
     tools.initializeCounter()
     timeDivideNConquer = tools.currentTime()
+    tools.sortArrayq(arrOfPoint, 0, 0, n-1)
     point1DC, point2DC, minDistanceDC= getClosestPairByDivideNConquer(arrOfPoint, n, dimension)
     timeDivideNConquer = tools.currentTime() - timeDivideNConquer
     
@@ -77,7 +78,7 @@ if __name__ == '__main__':
     print()
 
     # plot 3D
-    if ((n > 0) and (dimension == 3)):
+    if ((1 < n < 1000) and (dimension == 3)):
         three_dimensional_plotting(arrOfPoint, point1BF, point2BF, "Brute Force")
         three_dimensional_plotting(arrOfPoint, point1DC, point2DC, "Divide and Conquer")
 

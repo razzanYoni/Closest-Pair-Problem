@@ -1,7 +1,7 @@
-import matplotlib.pyplot as plt
+from matplotlib.pyplot import figure, show
 
 def three_dimensional_plotting(arrOfPoint:list, pointA:list, pointB:list, name:str = "") :
-    fig = plt.figure(num=name)
+    fig = figure(num=name)
 
     # 3D plot from array of points
     ax = fig.add_subplot(111, projection='3d')
@@ -10,4 +10,4 @@ def three_dimensional_plotting(arrOfPoint:list, pointA:list, pointB:list, name:s
     
     ax.scatter(pointA[0], pointA[1], pointA[2], color='red')
     ax.scatter(pointB[0], pointB[1], pointB[2], color='red')
-    plt.show()
+    show()
