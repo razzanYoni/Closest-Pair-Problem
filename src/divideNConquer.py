@@ -1,12 +1,8 @@
 from bruteForce import getClosestPairByBruteForce
 from tools import getDistanceBetweenPoints, validchecker, sortArrayq
 
-# TODO: implement sorted array
-# TODO: implement getClosestPairByDivideNConquer in the right way
-
 
 #buat perbadingan
-
 def getClosestPairByDivideNConquer(arrOfPoint:list, n:int, dimension:int = 3) -> tuple :
     if n <= 3: # if there are 3 or less points, use brute force
         return getClosestPairByBruteForce(arrOfPoint, n, dimension)
@@ -53,8 +49,6 @@ def getClosestPairByDivideNConquer(arrOfPoint:list, n:int, dimension:int = 3) ->
         sortArrayq(arrOfPointInMiddleLine2, 1, 0, nMiddleLine2-1)
 
         # find closest pair that cross the middle line
-        # TODO: optimize this loop
-        
         j = 0
         k = 0
         for i in range(nMiddleLine1):
