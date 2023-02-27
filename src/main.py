@@ -2,10 +2,11 @@ from bruteForce import getClosestPairByBruteForce
 from divideNConquer import getClosestPairByDivideNConquer
 from visualization import three_dimensional_plotting
 import tools
-import sys
+from sys import setrecursionlimit
+from os import listdir
 
 if __name__ == '__main__':
-    sys.setrecursionlimit(100000)
+    setrecursionlimit(100000)
     # input n points
     n = int(input("Enter number of points: "))
 
@@ -32,27 +33,6 @@ if __name__ == '__main__':
     timeBruteForce = tools.currentTime()
     point1BF, point2BF, minDistanceBF = getClosestPairByBruteForce(arrOfPoint, n, dimension)
     timeBruteForce = tools.currentTime() - timeBruteForce
-
-    # get closest pair by divide and conquer
-    
-
-    # print result
-    # print("Closest pair is Using Brute Force: ")
-    # print("Point A: ", point1BF)
-    # print("Point B: ", point2BF)
-    # print("Distance: ", minDistanceBF)
-    # print("Time: ", timeBruteForce)
-
-    # print("Closest pair is Using Divide and Conquer: ")
-    # print("Point A: ", point1DC)
-    # print("Point B: ", point2DC)
-    # print("Distance: ", minDistanceDC)
-    # print("Time: ", timeDivideNConquer)
-
-    # print()
-
-    #    if (minDistanceBF != minDistanceDC):
-    #        break
     
     # print difference between 2 methods
     print("Closest pair is Using Brute Force: ")
@@ -82,17 +62,19 @@ if __name__ == '__main__':
         three_dimensional_plotting(arrOfPoint, point1BF, point2BF, "Brute Force")
         three_dimensional_plotting(arrOfPoint, point1DC, point2DC, "Divide and Conquer")
 
-    # write to file error test case
-    import os
-    nFile = len(os.listdir("./test"))
-    fileName = "./test/tc" + str(nFile) + ".txt"
+    # write to file test case
 
-    with open(fileName, "w") as f:
-        for i in range(n):
-            for j in range(dimension):
-                if j == dimension - 1:
-                    f.write(str(arrOfPoint[i][j]))
-                else:
-                    f.write(str(arrOfPoint[i][j]) + " ")
-            f.write("\n")
-    f.close()
+    # To write to file, uncomment the following lines
+    
+    # nFile = len(listdir("./test"))
+    # fileName = "./test/tc" + str(nFile) + ".txt"
+
+    # with open(fileName, "w") as f:
+    #     for i in range(n):
+    #         for j in range(dimension):
+    #             if j == dimension - 1:
+    #                 f.write(str(arrOfPoint[i][j]))
+    #             else:
+    #                 f.write(str(arrOfPoint[i][j]) + " ")
+    #         f.write("\n")
+    # f.close()

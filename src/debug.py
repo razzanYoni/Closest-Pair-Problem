@@ -2,7 +2,7 @@ from main import *
 
 """DEBUG MODE"""	
 if __name__ == '__main__':
-    sys.setrecursionlimit(100000)
+    setrecursionlimit(100000)
 
     fileName = './test/tc14.txt'
 
