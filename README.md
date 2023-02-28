@@ -2,9 +2,7 @@
 ## Deskripsi Singkat
 Dalam tugas ini dibuat program berupa penyelesaian permasalahan mencari sepasang titik terdekat dengan Algoritma Divide and Conquer serta Algoritma Brute Force sebagai perbandingan. Program ditulis menggunakan bahasa python dan bekerja menggunakan antarmuka teks.
 
-Author:</br>
-Razzan Daksana Yoni 13521087</br>
-Muhamad Aji Wibisono 13521092
+
 
 ## Requirement
 - Python 3.9 or Above
@@ -29,6 +27,10 @@ Muhamad Aji Wibisono 13521092
         cd Tucil2_13521087_13521095/output
 
         .\bin.exe
+
+## Author
+[13521087 Razzan Daksana Yoni](https://github.com/razzanYoni)</br>
+[13521095 Muhamad Aji Wibisono](https://github.com/MuhamadAjiW)
 
 ## Acknowledgements
 - Bandung Institute of Technology, Informatics Engineering
