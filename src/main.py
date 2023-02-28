@@ -14,21 +14,29 @@ Input action:
 1. Random
 2. Read File
 3. exit""")
-        inputUser = int(input("-> "))
-        if inputUser == 1 :
-            n = int(input("Enter number of points: "))
-            dimension = int(input("Enter dimension: "))
-            arrOfPoint = []
-            for i in range(n):
-                temp = [tools.randomUniform(-100, 100) for j in range(dimension)]
-                arrOfPoint = arrOfPoint + [temp]
-        elif inputUser == 2 :
-            fileName = input("Input File Name: ")
-            arrOfPoint, n, dimension = tools.readFile(fileName)
-        elif inputUser == 3 :
-            exit = True
-        else :
-            pass    
+        try:
+            inputUser = int(input("-> "))
+            if inputUser == 1 :
+                n = int(input("Enter number of points: "))
+                if n < 2:
+                    raise Exception("Number of points must be larger than 1")
+                dimension = int(input("Enter dimension: "))
+                if dimension < 1:
+                    raise Exception("Dimension must be larger than 0")
+                arrOfPoint = []
+                for i in range(n):
+                    temp = [randomUniform(-100, 100) for j in range(dimension)]
+                    arrOfPoint = arrOfPoint + [temp]
+            elif inputUser == 2 :
+                fileName = input("Input File Name: ")
+                arrOfPoint, n, dimension = readFile(fileName)
+            elif inputUser == 3 :
+                exit = True
+            else :
+                pass    
+        except Exception as exception:
+            print(exception)
+            inputUser = -1
         if ((inputUser == 1) or (inputUser == 2)) :
             tools.initializeCounter()
             timeBruteForce = tools.currentTime()
