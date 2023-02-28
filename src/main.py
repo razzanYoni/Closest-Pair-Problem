@@ -25,11 +25,11 @@ Input action:
                     raise Exception("Dimension must be larger than 0")
                 arrOfPoint = []
                 for i in range(n):
-                    temp = [randomUniform(-100, 100) for j in range(dimension)]
+                    temp = [tools.randomUniform(-100, 100) for j in range(dimension)]
                     arrOfPoint = arrOfPoint + [temp]
             elif inputUser == 2 :
                 fileName = input("Input File Name: ")
-                arrOfPoint, n, dimension = readFile(fileName)
+                arrOfPoint, n, dimension = tools.readFile(fileName)
             elif inputUser == 3 :
                 exit = True
             else :
